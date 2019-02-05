@@ -1,1 +1,1 @@
-Introductory Course graduation Application
+Introductory Course Graduation Application 入門コース卒業アプリ
