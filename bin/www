@@ -88,3 +88,18 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+var io = require('socket.io')(server);
+
+function emitRoomStatus(socket) {
+  socket.emit('room-status', {});
+  console.log('room-status event emitted.');
+}
+
+io.on('connect', function (socket) {
+  emitRoomStatus(socket);
+});
+
+io.on('disconnect', function (socket) {
+  //setInterval(emitServerStatus, 10, socket);
+});

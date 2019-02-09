@@ -6,3 +6,20 @@ body {
 a {
   color: #00B7FF;
 }
+
+.block {
+  width: 100pt;
+  height: 100pt;
+  margin: 20pt;
+  background-color: chocolate;
+}
+
+.avater {
+  width: 35pt;
+  height: 35pt;
+  margin: 10pt;
+}
+
+#logout {
+  text-align: left;
+}

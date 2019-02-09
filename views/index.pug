@@ -1,6 +1,16 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
-  img(src=pic, width="30px" height="30px" alt="picture" )
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    div#logout
+        img.avater(src=data.pic_url, alt="picture" ) 
+        a(href="http://localhost:8000/logout")  ログアウト
+        hr
+  body
+    block content
+      h4 現在、勉強している人達 #{data.people.length}人
+      p
+      - for (var i = 0; i < data.people.length; i++)
+          img.avater(src=data.people[i], alt="picture")
+      script(src="/javascripts/bundle.js")

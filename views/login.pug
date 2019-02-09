@@ -1,6 +1,7 @@
 extends layout
 
 block content
-  a(href="/auth/github") Githubでログイン
+  p GitHubのアカウントが必要です
+  a(href="/auth/github") 勉強する人はログイン
   if user
     p 現在　#{user.usrname} でログイン中
