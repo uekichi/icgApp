@@ -34,8 +34,6 @@ passport.use(new GitHubStrategy({
 ));
 
 var indexRouter = require('./routes/index');
-var loginRouter = require('./routes/login');
-var logoutRouter = require('./routes/logout');
 
 var app = express();
 
@@ -56,8 +54,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/login', loginRouter);
-app.use('/logout', logoutRouter);
 
 app.get('/auth/github',
   passport.authenticate('github', { scope: ['user:email'] }),

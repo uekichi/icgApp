@@ -4,13 +4,13 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
     div#logout
-        img.avater(src=data.pic_url, alt="picture" ) 
+        img#myAvater(src=data.pic_url, alt="picture" ) 
         a(href="http://localhost:8000/logout")  ログアウト
         hr
   body
     block content
-      h4 現在、勉強している人達 #{data.people.length}人
+      h4 現在、勉強している人達 #{data.currentLoginUsers.length}人
       p
-      - for (var i = 0; i < data.people.length; i++)
-          img.avater(src=data.people[i], alt="picture")
+      - for (var i = 0; i < data.currentLoginUsers.length; i++)
+          img.avater(src=data.currentLoginUsers[i], alt="picture")
       script(src="/javascripts/bundle.js")

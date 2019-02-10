@@ -5,19 +5,18 @@ body {
 
 a {
   color: #00B7FF;
-}
-
-.block {
-  width: 100pt;
-  height: 100pt;
-  margin: 20pt;
-  background-color: chocolate;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 .avater {
-  width: 35pt;
-  height: 35pt;
+  width: 30pt;
+  height: 30pt;
   margin: 10pt;
+}
+
+#myAvater {
+  width: 30pt;
+  height: 30pt;
 }
 
 #logout {
