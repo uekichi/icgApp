@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 var authenticationEnsurer = require('./authentication-ensurer');
 
-// ファイル間でcurrentLoginUsersの使い方がわからなく全部routes/index.jsにまとめる
+// ファイル間で変数（currentLoginUsers）の使い方がわからなく全部routes/index.jsにまとめる
 // 画像URLの配列 
 var currentLoginUsers = [];
 
 router.get('/', authenticationEnsurer, (req, res, next) => {
   var pic_url = req.user._json.avatar_url;
   currentLoginUsers.push(pic_url);
-  intoCurrentLoginUsers(currentLoginUsers, pic_url);
+  intoCurrentLoginUsers(currentLoginUsers);
   data = {
     title: '勉強中（開発用）',
     pic_url: pic_url,
@@ -29,12 +29,16 @@ router.get('/logout', function(req, res, next) {
 });
 
 
-//再読み込みでアイコンが増えるので重複をなくすことで対処 (出来ない)
-function intoCurrentLoginUsers(currentLoginUsers, pic_url) {
-  currentLoginUsers.filter((x, i, self) => {
-    return self.indexOf(x) === i;
-  });
+// AJAXで現在のログインユーザーを配列で取得できるAPI
+router.get('/currentLoginUsers', authenticationEnsurer, (req, res, next) => {
+  res.json({currentLoginUsers: currentLoginUsers});
+});
 
+//再読み込みでアイコンが増えるので重複をなくすことで対処 (出来ない)
+function intoCurrentLoginUsers(currentLoginUsers) {
+  return currentLoginUsers.filter((value, index, self) => {
+    return self.indexOf(value) === index;
+  });
 }
 
 //ログアウト時　currentLoginUsersから自分のURLを削除 (同じURLが全部消えない)

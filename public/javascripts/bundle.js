@@ -95,16 +95,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-/*
-const block = $('#block');
-const scalingButton = $('#scaling-button');
+var currentLoginUsers = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#currentLoginUsers');
+var loginNumber = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loginNumber'); //10秒に1度、ログインしてる人を表示させる
+//dataはJSON形式、currentLoginUsers属性でアイコンURLの配列を取得
 
-scalingButton.click(() => {
-  block.animate({ width: '200pt', height: '200pt' }, 2000);
-  block.animate({ width: '100pt', height: '100pt' }, 2000);
-});
+setInterval(function () {
+  jquery__WEBPACK_IMPORTED_MODULE_0___default.a.get('/currentLoginUsers', {}, function (data) {
+    currentLoginUsers.empty();
 
-*/
+    for (var i = 0; i < data.currentLoginUsers.length; i++) {
+      currentLoginUsers.append('<img src="' + data.currentLoginUsers[i] + '" width="30px" height="30px">');
+    }
+
+    loginNumber.text('今、勉強している人たち ' + data.currentLoginUsers.length + '人');
+  });
+}, 10000);
 
 /***/ }),
 /* 1 */

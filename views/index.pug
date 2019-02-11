@@ -9,8 +9,9 @@ html
         hr
   body
     block content
-      h4 現在、勉強している人達 #{data.currentLoginUsers.length}人
-      p
-      - for (var i = 0; i < data.currentLoginUsers.length; i++)
-          img.avater(src=data.currentLoginUsers[i], alt="picture")
+      h4#loginNumber 目標に向かって頑張りましょう
+      div#currentLoginUsers
+      //- AJAX使わないやり方
+      //-- for (var i = 0; i < data.currentLoginUsers.length; i++)
+      //-    img.avater(src=data.currentLoginUsers[i], alt="picture")
       script(src="/javascripts/bundle.js")

@@ -22,3 +22,10 @@ a {
 #logout {
   text-align: left;
 }
+
+/* 機能しない*/
+#currentLoginUsers {
+  width: 30pt;
+  height: 30pt;
+  margin: 10pt;
+}
