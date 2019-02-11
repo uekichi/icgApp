@@ -96,7 +96,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var currentLoginUsers = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#currentLoginUsers');
-var loginNumber = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loginNumber'); //10秒に1度、ログインしてる人を表示させる
+var loginNumber = jquery__WEBPACK_IMPORTED_MODULE_0___default()('#loginNumber'); //5秒に1度、ログインしてる人を表示させる
 //dataはJSON形式、currentLoginUsers属性でアイコンURLの配列を取得
 
 setInterval(function () {
@@ -104,12 +104,12 @@ setInterval(function () {
     currentLoginUsers.empty();
 
     for (var i = 0; i < data.currentLoginUsers.length; i++) {
-      currentLoginUsers.append('<img src="' + data.currentLoginUsers[i] + '" width="30px" height="30px">');
+      currentLoginUsers.append('<img src="' + data.currentLoginUsers[i] + '" class="avater" width="25pt" height="25pt" margin="5pt">');
     }
 
     loginNumber.text('今、勉強している人たち ' + data.currentLoginUsers.length + '人');
   });
-}, 10000);
+}, 5000);
 
 /***/ }),
 /* 1 */

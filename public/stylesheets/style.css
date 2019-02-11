@@ -1,17 +1,19 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: black; 
 }
 
 a {
   color: #00B7FF;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: large;
 }
 
 .avater {
-  width: 30pt;
-  height: 30pt;
-  margin: 10pt;
+  width: 25pt;
+  height: 25pt;
+  margin: 5pt;
 }
 
 #myAvater {
@@ -23,9 +25,7 @@ a {
   text-align: left;
 }
 
-/* 機能しない*/
-#currentLoginUsers {
-  width: 30pt;
-  height: 30pt;
-  margin: 10pt;
+#loginNumber {
+  color: whitesmoke;
+  font-size: large;
 }
