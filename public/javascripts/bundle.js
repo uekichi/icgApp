@@ -107,7 +107,7 @@ setInterval(function () {
       currentLoginUsers.append('<img src="' + data.currentLoginUsers[i] + '" class="avater" width="25pt" height="25pt" margin="5pt">');
     }
 
-    loginNumber.text('今、勉強している人たち ' + data.currentLoginUsers.length + '人');
+    loginNumber.text('今、勉強している人たち ' + data.currentLoginUsers.length + '名');
   });
 }, 5000);
 

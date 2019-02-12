@@ -9,11 +9,10 @@ var currentLoginUsers = [];
 router.get('/', authenticationEnsurer, (req, res, next) => {
   var pic_url = req.user._json.avatar_url;
   currentLoginUsers.push(pic_url);
-  intoCurrentLoginUsers(currentLoginUsers);
+  currentLoginUsers = deleteOverlapCurrentLoginUsers(currentLoginUsers);
   data = {
     title: '勉強中',
-    pic_url: pic_url,
-    currentLoginUsers : currentLoginUsers
+    pic_url: pic_url
   }
   res.render('index', data);
 });
@@ -30,20 +29,19 @@ router.get('/logout', function(req, res, next) {
   res.redirect('/');
 });
 
-
 // AJAXで現在のログインユーザーを配列で取得できるAPI
 router.get('/currentLoginUsers', authenticationEnsurer, (req, res, next) => {
   res.json({currentLoginUsers: currentLoginUsers});
 });
 
-//バグ・再読み込みでアイコンが増えるので重複をなくすことで対処 (X出来ない)
-function intoCurrentLoginUsers(currentLoginUsers) {
+//再読み込みでアイコンが増えるので重複をなくすことで対処
+function deleteOverlapCurrentLoginUsers(currentLoginUsers) {
   return currentLoginUsers.filter((value, index, self) => {
     return self.indexOf(value) === index;
   });
 }
 
-//バグ・ログアウト時、currentLoginUsers配列から自分のURLを削除 (X出来ない)
+//ログアウト時、currentLoginUsers配列から自分のURLを削除
 function deleteFromCurrentLoginUsers(req, res) {
   for (var i = 0; i < currentLoginUsers.length; i++) {
     if (currentLoginUsers[i] === req.user._json.avatar_url) {
