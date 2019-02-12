@@ -1,0 +1,7 @@
+{
+  "name": "勉強中",
+  "description": "勉強中の人たちの可視化",
+  "logo": "",
+  "keywords": ["node"],
+  "image": "heroku/nodejs"
+}
